@@ -7,7 +7,7 @@ do
 	if [ ! -e $FOLDER/../$f ]
 	then
 		echo Linking $f
-		ln -s `basename $FOLDER`/links/$f `dirname $FOLDER`/$f
+		ln -sf `basename $FOLDER`/links/$f `dirname $FOLDER`/$f
 	fi
 done
 
