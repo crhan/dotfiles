@@ -42,6 +42,8 @@ export HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+export PROMPT_COMMAND='history -a'
+export HISTFILE=/data/.bash_history
 HISTSIZE=200000
 HISTFILESIZE=400000
 export HISTTIMEFORMAT="%F %T: "
@@ -58,7 +60,6 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-
 pathmunge /usr/local/sbin
 pathmunge /usr/local/bin
 
@@ -70,9 +71,6 @@ gitlab_config() {
   git config user.email "ruohan.chen@antgroup.com"
   git config user.name "墨泪"
 }
-
-
-
 
 
 today() {
@@ -100,17 +98,7 @@ show_virtual_env() {
   fi
 }
 
-export PS1='$(show_virtual_env)'$PS1
-
+# export PS1='$(show_virtual_env)'$PS1
 
 pathmunge $HOME/bin
-
-
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-source /usr/local/bin/virtualenvwrapper.sh
 pathmunge $HOME/.local/bin
-pathmunge ~/.kusion/bin/
-
-export HASS_SERVER=http://ha.crhan.com:8123/
-export HASS_TOKEN=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5M2NjNWFhYWY0MDA0NDBmODZiMTVhZTI5ODZhYjdkOSIsImlhdCI6MTU3NTA4MjQ1MSwiZXhwIjoxODkwNDQyNDUxfQ.lCYO87aTZrjkOp7YzZMsMykWCwrQKI1uC3I6MgHbugg
